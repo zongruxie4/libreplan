@@ -349,7 +349,7 @@
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-acl</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.5.0</version>
             </dependency>
 
             <!-- Spring Dependency LDAP -->
