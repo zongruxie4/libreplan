@@ -313,7 +313,7 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-web</artifactId>
-                <version>4.3.9.RELEASE</version>
+                <version>6.2.10</version>
             </dependency>
 
             <!--
@@ -332,31 +332,31 @@
             <dependency>
                 <groupId>org.springframework</groupId>
                 <artifactId>spring-context-support</artifactId>
-                <version>4.3.9.RELEASE</version>
+                <version>6.2.10</version>
             </dependency>
 
             <!--  Spring security -->
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-web</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.4.9</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-config</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.4.9</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-acl</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.4.9</version>
             </dependency>
 
             <!-- Spring Dependency LDAP -->
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-ldap</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.4.9</version>
             </dependency>
 
             <!-- Spring test -->
