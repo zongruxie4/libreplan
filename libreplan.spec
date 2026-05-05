@@ -10,7 +10,7 @@ Source1:        http://downloads.sourceforge.net/project/libreplan/LibrePlan/%{n
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 BuildArch:      noarch
 
-#BuildRequires: java-1.8.0-openjdk
+#BuildRequires: java-1.11.0-openjdk
 #BuildRequires: maven2
 #BuildRequires:	maven2-common-poms
 #BuildRequires: python-docutils
@@ -24,16 +24,16 @@ BuildArch:      noarch
 Requires:       postgresql-jdbc
 %endif
 %if 0%{?fedora} >= 17
-Requires:	java-1.8.0-openjdk
+Requires:	java-1.11.0-openjdk
 %else
-Requires:       java-1.8.0-openjdk
+Requires:       java-1.11.0-openjdk
 %endif
 Requires:       postgresql
 Requires:       postgresql-server
 Requires:       tomcat8
 %if 0%{?centos}
 %else
-Requires:       cutycapt
+Requires:       wkhtmltopdf
 %endif
 
 %if 0%{?suse_version}
@@ -105,6 +105,8 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/%{name}/conf/*
 
 %changelog
+* Wed Apr 15 2015 Jeroen Baten       jeroen@libreplan.dev> - 1.6.0-1
+- Released LibrePlan 1.6.0
 * Mon Apr 29 2012 Manuel Rego Casasnovas <rego@igalia.com> - 1.4.0-1
 - Released LibrePlan 1.4.0
 * Fri Dec 21 2012 Manuel Rego Casasnovas <rego@igalia.com> - 1.3.3-1
