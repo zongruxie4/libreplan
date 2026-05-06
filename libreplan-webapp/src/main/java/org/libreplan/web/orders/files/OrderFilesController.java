@@ -223,39 +223,39 @@ public class OrderFilesController extends GenericForwardComposer {
         if ( isRepositoryExists() ) {
 
             String projectCode = orderElementModel.getOrderElement().getCode();
-            directory = configurationModel.getRepositoryLocation() + "orders" + "/" + projectCode;
 
             try {
-                // Location of file: libreplan-webapp/src/main/webapp/planner/fileupload.zul
-                Fileupload.setTemplate("fileupload.zul");
+                Fileupload.setTemplate("/planner/fileupload.zul");
 
                 Media media = Fileupload.get();
+
+                if ( media == null ) {
+                    return;
+                }
+
+                String repoLocation = configurationModel.getRepositoryLocation();
+                if ( !repoLocation.endsWith("/") ) {
+                    repoLocation += "/";
+                }
+                directory = repoLocation + "orders/" + projectCode;
 
                 File dir = new File(directory);
                 String filename = media.getName();
                 File file = new File(dir, filename);
 
-                // By default Java do not create directories itself
                 file.getParentFile().mkdirs();
 
-                OutputStream outputStream = new FileOutputStream(file);
+                try ( OutputStream outputStream = new FileOutputStream(file);
+                      InputStream inputStream = media.isBinary()
+                              ? media.getStreamData()
+                              : new ReaderInputStream(media.getReaderData()) ) {
 
-                InputStream inputStream = media.isBinary()
-                        ? media.getStreamData()
-                        : new ReaderInputStream(media.getReaderData());
-
-                if ( inputStream != null ) {
-                    byte[] buffer = new byte[1024];
-                    for ( int count; (count = inputStream.read(buffer)) != -1; ) {
-                        outputStream.write(buffer, 0, count);
+                    if ( inputStream != null ) {
+                        byte[] buffer = new byte[1024];
+                        for ( int count; (count = inputStream.read(buffer)) != -1; ) {
+                            outputStream.write(buffer, 0, count);
+                        }
                     }
-                }
-
-                outputStream.flush();
-                outputStream.close();
-
-                if (inputStream != null) {
-                    inputStream.close();
                 }
 
                 orderFileModel.createNewFileObject();
@@ -271,9 +271,11 @@ public class OrderFilesController extends GenericForwardComposer {
 
                 orderFileModel.confirmSave();
 
+                messages.showMessage(Level.INFO, _t("File uploaded successfully"));
 
             } catch (Exception e){
                 e.printStackTrace();
+                messages.showMessage(Level.ERROR, _t("Error uploading file: ") + e.getMessage());
             }
 
             finally {
