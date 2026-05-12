@@ -1,7 +1,621 @@
 NEWS
 ====
 
-Version 1.6.0 (? 2016)
+Version 1.6.0 (17 Apr 2026)
+----------------------------------
+
+
+Summary
+~~~~~~~
+
+This release, from our internal project "Phoenix" aims to both revive and expand on the already very 
+rich LibrePlan functionality.
+
+Notable new features are:
+* Addition if issue and risk log at the project level.
+* Addition of both money and time spend 'traffix lights' per project at the global level.
+* Email notification functionality, integrated in the RBAC framework.
+* Addition of the concept of configurable 'connectors'.
+* Addition of Jira connector for timesheet synchronization.
+* First edition of global projects pipeline view.
+* Addition of per project document repository.
+
+Notes
+~~~~~
+
+If you are upgrading from 1.4.1 without using a 
+package, you will need to manually execute on your database the SQL commands
+from file: 'scripts/database/upgrade_1.6.0.sql'.
+
+If you are upgrading from earlier version without using the Debian package,
+you will need to manually execute on your database the SQL commands from all files.
+
+Contributors
+~~~~~~~~~~~~
+
+A big thanks to all the contributors to version Phoenix-beta :
+
+* Bogdan Bodnarjuk
+* Carsten Schumann
+* Dgray16
+* Geert Stappers
+* Jeroen Baten
+* Kris Buytaert
+* Lorenzo Tilve Álvaro
+* Misha
+* Oscar Gonzalez Fernandez
+* Paul Luchyn
+* Poum
+* Santiago Borrazas
+* Sergey Shpikin
+* Stappers Geert
+* Tristan Ramseyer
+* Vadim
+* Vikram Palakurthi
+* Vova Perebykivskyi
+* Yannick Mauray
+* bodnarjuk
+* j-arnott
+* lmann99
+* Miciele Ghiorghis
+* mvanmiddelkoop
+* skylow95
+* vmazurashu
+
+Translators
+~~~~~~~~~~~
+
+Thanks to all the translators in this new version:
+
+* [ca] Daniel Díaz Sañudo
+* [es] Lorenzo Tilve Álvaro
+* [fr] Philippe Poumaroux
+* [gl] Lorenzo Tilve Álvaro
+* [it] Giuseppe Zizza
+* [nl] Jeroen Baten
+* [pt] Thiago Cangussu
+* [zn] Swanson Chan
+
+Changes
+~~~~~~~
+
+* There were a lot of libreplan.com mentions in the source. This needs to be libreplan.dev and never http but always https.
+* Changing dashboard icon in global view to pipeline. Updating translations.
+* Enable test resource filtering to fix broken test suite
+* Upgrade of mpxj import library.
+* Removing unneeded/unwanted documentation.
+* Some functions still needed conversion. Also now TODO is no longer needed.
+* Update Guava from 19.0 to 33.5.0-android
+* Upgrade commons-fileupload to version 1.5 to address security vulnerability
+* Upgrade commons-io to version 2.11.0 to address security vulnerability
+* Upgrade jdk from 8 to 11.
+* Adding JDk-17 worflows.
+* Add JAXB dependencies to libreplan-business module for Java 11 test compatibility
+* Adding Ubuntu 24.04 Forgejo jdk-11 runner.
+* Adding jdk-11 runner
+* Add JAXB dependencies to dependencyManagement for Java 11 compatibility
+* Add Java 11 compatibility dependencies
+* Fix CriterionBandboxFinder syntax and import issues
+* Fix commented services line by mistake
+* Setup development database using docker compose
+* Updating current build workflow to use more modern way of assigning variables
+* Adding doc on how to setup the LibrePlan repo in Forgejo. Adding workflow to generate PostgreSQL database migration scripts.
+* Now also uploads artifact with git hash in name.
+* First working Forgejo action file.
+* Update README.rst
+* Testing Forgejo actions
+* Attempt to improve the help texts.
+* Updated package name from python-docutils to python3-docutils.
+* Ported doctool from Python 2 to Python 3
+* Fix Title underline too short error
+* Removed double strings in language files.
+* Turns out, the pot generation script can miss some strings...
+* Create SECURITY.md
+* Create CODE_OF_CONDUCT.md
+* Updated translations to Dutch, German, Spanish, French, Italian and Brazilian_Portugese
+* Added sponsor request message to login page. Tested i18n for new message in Dutch language. Generated fresh translation input files. Made small edit to jetty-env.xml to remove warning message.
+* Updating logging and jetty libs.
+* Ignore VS Code settings.
+* Create funding-manifest-urls
+* Working include of remote build file.
+* Update HACKING.rst
+* Removed nektos act compatibility in ubuntu-20.04.yml
+* Updated HACKING.rst to not skip tests.
+* Updated PostgreSQL JDBC Driver to 42.2.25.jre7 for SCRAM authentication.
+* Workflow for Ubuntu 22.04 and Postgresql 14
+* Update maven.yml with PostgreSQL service
+* Make build work in Ubuntu 20.04 with openjdk-8-jdk without working tests (yet).
+* Added repository with new domain for JFrog Artifactory SaaS.
+* Merge pull request #1941 from tramseyer/master
+* Ignore fr documentation auto-generated files
+* Merge pull request #1938 from j-arnott/patch-1
+* Merge pull request #1939 from tramseyer/patch-1
+* Merge pull request #1940 from tramseyer/master
+* Updated instructions for Ubuntu 18.04 + 20.04
+* Added missing dependency for Ubuntu 18.04 + 20.04
+* Update plannerLayout.zul
+* Bump junit from 4.12 to 4.13.1
+* Bump hibernate-validator from 5.2.4.Final to 5.3.6.Final
+* Bump quartz from 2.2.3 to 2.3.2
+* Changed all references to libreplan.org to libreplan.dev.
+* Merge pull request #1923 from grypho/master
+* Bugfix: #1922 Unintended horizontal shift between Gantt and Resource view.
+* Merge pull request #1921 from grypho/master
+* Bugfix: #1909 Changing zoom level in Gantt view did not affect timescale/background due to GC optimization of lambda functions.
+* Merge pull request #1916 from grypho/master
+* Bugfix: Updated version of timeplotz in dependencies to use fix from issue #1908.
+* Merge pull request #1907 from grypho/master
+* Bugfix: Replaced deprecated .class.name call.
+* Merge pull request #1906 from ymauray/dep_fix
+* Updated ZK artefacts to 8.6.0.1
+* Fixing vulnerability.
+* Relocated nexus from libreplan.org to libreplan.dev
+* Merge pull request #1892 from vmazurashu/master
+* Merge pull request #1889 from vmazurashu/master
+* #1887: change UI and DB constraints
+* Merge pull request #1884 from vmazurashu/master
+* #1872: add additional verification of empty config
+* Merge pull request #1881 from vmazurashu/master
+* 1872: remove default constructor
+* #1872: add necessary imports
+* 1872: fix sending statistics
+* 1870: update mysql jdbc driver version
+* 1870: update postgresql jdbc driver version, add explicitly org.zkoss.common.zweb
+* Merge pull request #1879 from vmazurashu/master
+* #1868: revert changes to default one, add new change set with fixes
+* Merge 1868: revert changes to default one, add new change set with fixes
+* Merge pull request #1874 from vmazurashu/master
+* #1802: fix issue with wrong string
+* Update section with providing URL to the application
+* Merge pull request #141 from lmann99/master
+* Merge branch 'master' of git://github.com/LibrePlan/libreplan
+* Merge pull request #143 from mrtinkz/master
+* Fixed AnnotationAwareAspectJAutoProxyCreator is only available on Java 1.5 and higher
+* Merge pull request #26 from lmann99/filter-projects-at-finished-status
+* Add filtering of finished projects
+* Merge pull request #25 from lmann99/add-start-end-dates-to-weekly-personal-timesheet-dashboard
+* Add day of week to personal timesheet date display
+* Merge pull request #23 from lmann99/taskelement-get-toplevel-project-taskelement
+* Use top level project task for grouped sub tasks
+* Merge pull request #22 from lmann99/email-notification-leaf-tasks-only
+* Restrict email notifications to leaf node tasks
+* Merge pull request #19 from lmann99/fillChart-check-null
+* Fix exception when clearing a chart
+* Merge pull request #18 from lmann99/treeController-array-index-out-of-bounds
+* Corrected lower bound on index check
+* Correct index out of bounds exception in focusGoDown
+* Correct index out of bounds exception in focusGoDown
+* Merge pull request #16 from lmann99/fix-lazyinitialization-user-profiles-roles
+* Include missed lazy=false to User hibernate config
+* Merge pull request #14 from lmann99/fix-lazyinitialization-user-profiles-roles
+* Fix lazyinitialization listing a users profiles roles
+* Merge pull request #12 from lmann99/move-i18n.tld
+* Modify taglib config to correct /WEB-INF/tld/i18n.tld not found errors
+* Merge pull request #10 from lmann99/update-sapphire
+* Update sapphire.jar to 8.0.4
+* Merge pull request #8 from lmann99/fix-transientObject-exception-saving-project
+* Fix TransientObjectException when allocating a resource to a previously saved schedule
+* Merge pull request #7 from lmann99/exclude-non-bound-resources-from-notifications
+* Resolve NullPointerExceptions thrown by email notification scheduled jobs
+* Merge pull request #5 from lmann99/remove-notifications-when-tasks-removed
+* Remove notifications from queue when associated project or task deleted
+* Merge branch 'master' of https://github.com/lmann99/libreplan
+* Merge pull request #2 from lmann99/add-planner-view-user-preferences
+* Merge pull request #2 from lmann99/add-planner-view-user-preferences
+* Add to user preferences ability to set default show/hide button state
+* Merge pull request #1 from lmann99/add-global-dashboard-vert-scrollbar
+* Create vertical scroll bar on global dashboard
+* Revert "Create vertical scroll bar on global dashboard"
+* Create vertical scroll bar on global dashboard
+* Add the description field to the Create new project dialog
+* Add a Planned Budget column and change sorter on Total Budget to Projects List tab
+* Fix LazyInitializationException when sorting project list by Total Budget
+* Fix LazyInitializationException when sorting project list by State
+* Merge branch 'master' of https://github.com/LibrePlan/libreplan
+* Merge pull request #138 from PaulLuchyn/master
+* Added javadoc Docs update, fixed ArithmeticException on dashboard page
+* Fix for bug 1706, java.lang.StackOverflowException when adding backdated progress assignment
+* Typographic and minor edits, addition of pipeline dashboard document
+* Changes to logo uploading and deleting
+* Correction to earlier email notification related changes
+* Fix for bug 1705, java.lang.NullPointerException by 'Create Worker' when looking up existing user
+* Add project url to email template keywords, allow url keyword in timesheet template
+* Updates to email notification routines
+* Merge branch 'master' of https://github.com/LibrePlan/libreplan
+* fixed some small strings
+* updated and added languages
+* Added docs for i18n for Windows OS
+* Merge pull request #135 from PaulLuchyn/master
+* Added "Delete all projects" button
+* Changesets refactoring
+* Added interactive user roles list
+* Merge pull request #134 from PaulLuchyn/master
+* Changed functional of logs page Added saving of state between tab changes, code refactor
+* Merge pull request #133 from PaulLuchyn/master
+* Removed checkIncludeOrderElements checkbox and its functional Removed checkbox, all corresponding functional and condition checking, predicate refactor, code refactor
+* Merge pull request #132 from PaulLuchyn/master
+* Merge remote-tracking branch 'upstream/master'
+* Merge pull request #130 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Rows alignment for Firefox.
+* Fixed ValidationException on LDAP configuration page
+* Changed css styles on Dashboard (Global) page
+* Added constraints to the risk and issue logs page
+* Merge pull request #127 from PaulLuchyn/master
+* Added javadoc
+* Added nonlimiting limits
+* Merge pull request #125 from PaulLuchyn/master
+* Revert old timeplotz dependency. Rows alignment for Chrome.
+* Resolved bug with constraint violation when deleting project with risk and issue logs Code refactor
+* Fixed null pointer exception when sending email manually Fixed bad timeplotz dependency
+* Merge pull request #123 from PaulLuchyn/master
+* Merge remote-tracking branch 'upstream/master'
+* Fixed bug with foreign key constraint violation while order deleting Code refactor, API changes, changed logic of file and order deleting, minor fixes
+* Merge pull request #122 from dgray16/master
+* Update hibernate-core to 5.1.1. Resolve some no sessions exceptions.
+* Merge pull request #121 from dgray16/master
+* Remove slf4j-jdk14 dependency. Set default config for ExpensesSheet entities obviously in ehcache.xml. Add log4j loggers. Minor changes to documentation / i18n. Code refactoring.
+* Merge pull request #119 from dgray16/master
+* Code refactoring.
+* Merge remote-tracking branch 'upstream/master'
+* Changes to EmailSending feature. Code refactoring.
+* Merge pull request #118 from PaulLuchyn/master
+* Merge remote-tracking branch 'upstream/master'
+* Resolved InvalidDataAccessApiUsageException Code refactor, resolved deprecated methods, partial mapping changes
+* Merge pull request #116 from dgray16/master
+* Style changes to User Accounts Page. Style changes to Personal Timesheet Page. Changes to LibrePlan new version notification. Set timeout for email connection. Code refactoring.
+* Optimize imports.
+* Resolve some TODO`s. Code refactoring.
+* Update thirdparty repository. Code refactoring.
+* Visual improvements for workReport page. Code refactoring.
+* Changes to Spring security rules. Code refactoring.
+* Resolve ZK binding model exception. Code refactoring.
+* Add i18n for some strings. Code refactoring.
+* Merge pull request #115 from dgray16/master
+* LibrePlan website opens in new browser window. Code refactoring.
+* Merge libreplan-webapp module with ZK branch. Code refactoring.
+* Merge libreplan-business module with ZK branch. Code refactoring.
+* Merge ganttzk module with ZK branch.
+* Update root files. Merge root files from ZK branch.
+* Merge pull request #112 from PaulLuchyn/master
+* Fixed bug with GC overhead
+* Merge pull request #109 from PaulLuchyn/master
+* Fixed bug with dateboxes Optimization, code refactor
+* Fixed trouble with failing changelogs on MySql
+* Merge pull request #106 from PaulLuchyn/master
+* Added limits to dateboxes on project scheduling page
+* replaced login screen logos
+* Merge pull request #101 from dgray16/master
+* Add i18n for status labels in filtering. Code refactoring. (cherry picked from commit 8b5f516)
+* Merge pull request #97 from dgray16/master
+* Add tests for Email functionality. Resolve minor issues with email functionality. Resolve issue with test failing. Update Java Mail library, Apache CXF. Code refactoring.
+* Merge pull request #95 from dgray16/master
+* Resolve error in DashboardControllerGlobal.
+* Add start/end date constraints. Update NEWS file. Resolve minor errors.
+* Update Hibernate stack. Update Hibernate ID generator. Changes to Hibernate mappings. Changes to OrderFileTest. Code refactoring.
+* Merge pull request #92 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Update info about MySQL. Update i18n dependencies (Gettext). Resolve Spring Security logout issue. Code refactoring.
+* Merge pull request #91 from poum/master
+* Ad french version and fix some typo. Upgrade soft versions
+* Add docker info and ugrade LibrePlan, Postgres, Tomcat and Linux distrib versions
+* Merge pull request #90 from dgray16/master
+* Update Spring stack. Code refactoring (config files, java classes, css file). Update LibrePlan version in files.
+* Merge pull request #89 from dgray16/master
+* Merge remote-tracking branch 'upstream/master' Resolve conflicts.
+* Update JAX-RS-API. Update PostgreSQL dialect. Pom files refactoring. Code refactoring.
+* Merge pull request #88 from skylow95/master
+* Merge remote-tracking branch 'upstream/master'
+* Update Commons-fileupload, beanshell Fix jackson, jasper libs Refactoring code
+* Merge pull request #87 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Update CXF. Code refactoring. Changes to config files.
+* Merge pull request #86 from skylow95/master
+* Changes
+* Changes
+* Update Tomcat Maven plugin. Code refactoring. Remove unused class.
+* Update imports, update pom files in libreplan-webapp/libreplan-business and change test for libs
+* Merge pull request #85 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Merge pull request #84 from skylow95/master
+* Update Tomcat Maven plugin. Code refactoring. Remove unused class.
+* Merge remote-tracking branch 'upstream/master'
+* Update AspectJ Weaver
+* Merge pull request #83 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Update MySQL JDBC driver for JDK7. Update documentation info about MySQL. Code refactoring. POM / DB changelog files refactoring.
+* Merge pull request #82 from skylow95/master
+* Update Commons Logging
+* Merge pull request #81 from skylow95/master
+* Update Commons-IO and refactoring code for JUnit
+* Merge pull request #80 from skylow95/master
+* Refactoring code for Easy Mock lib
+* Merge pull request #79 from skylow95/master
+* Merge remote-tracking branch 'upstream/master'
+* Update JDBC driver
+* Merge pull request #78 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Update Commons Collections. Code refactoring.
+* Merge pull request #77 from skylow95/master
+* Changes
+* Refactoring code and change deprecated methods
+* Merge pull request #76 from dgray16/master
+* Update Slf4j. Code refactoring.
+* Merge pull request #75 from dgray16/master
+* Update Log4j. Code refactoring.
+* Merge pull request #74 from dgray16/master
+* Delete Ezmorph library. Pom file refactoring.
+* Merge pull request #73 from dgray16/master
+* Refactoring code and change depracted methods (lib JodaTime)
+* Update Commons Lang. Code refactoring.
+* Merge pull request #72 from dgray16/master
+* Update Commons Math. Code refactoring.
+* Merge pull request #71 from dgray16/master
+* Update JGraphT. Code refactoring.
+* Merge pull request #70 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Update Jasper Reports
+* Merge remote-tracking branch 'upstream/master'
+* Update DBUnit. Changes to technical documents.
+* Merge pull request #69 from skylow95/master
+* Update JodaTime and Jfree libs (cherry picked from commit 01a45a4)
+* Merge pull request #68 from dgray16/master
+* Merge remote-tracking branch 'upstream/master'
+* Update javax.servlet. Code refactoring.
+* Merge pull request #67 from skylow95/master
+* Merge remote-tracking branch 'upstream/master'
+* Update Jackson lib, change repo for lib
+* Merge pull request #66 from dgray16/master
+* Update LiquiBase dependencies.
+* Merge pull request #65 from skylow95/master
+* Update all plugins
+* Merge pull request #55 from skylow95/master
+* Add to changelog-1.2.xml update value send statistics to developers (cherry picked from commit f1ed13e)
+* Change db.changelog-1.4.xml (cherry picked from commit 21e4b71) (cherry picked from commit c5c6e3c)
+* Merge pull request #54 from skylow95/master
+* Change db.changelog-1.4.xml (cherry picked from commit 21e4b71) (cherry picked from commit c5c6e3c)
+* Merge pull request #52 from dgray16/master
+* Added test for BAC value. Code refactoring. (cherry picked from commit 0f00d11)
+* Merge pull request #50 from skylow95/master
+* Adding a date to the json stats send (cherry picked from commit 21e4b71)
+* Merge pull request #48 from dgray16/master
+* Extend the statistics to be sent to LibrePlan server. Code refactoring.
+* Update manuals.
+* old name of libreplan is navalplan
+* debian source format 3.0 quilt
+* debian/changelog contained invalid email address
+* debian/control: maven2 became maven
+* debian/changelog: it is 1.4.1-2 what goes into Debian
+* version 1.4.1 is out
+* debian/changelog: 1.4.1 is out, Debian closing ITP report
+* Merge pull request #45 from dgray16/master
+* Add more E-mail Notifications. i18n. Code refactoring. Changes to mappings.
+* Merge pull request #44 from dgray16/master
+* Update MPXJ library. Changes to Project Import functionality. Code refactoring. i18n.
+* Merge pull request #43 from dgray16/master
+* Documents uploading/downloading feature + tests. i18n. Resolving bugs/issues. Code refactoring. Add Liquibase tip.
+* Merge pull request #42 from dgray16/master
+* Change message of new LibrePlan version. i18n. (cherry picked from commit 88cb119)
+* Merge pull request #40 from dgray16/master
+* Add possibility to send data usage to LibrePlan server. (cherry picked from commit acb6a2f with some changes!)
+* Merge pull request #38 from poum/master
+* Revert Java fix (already fixed)
+* Fix doc generation
+* Suppress an useless import avoid Java 6 build
+* Merge pull request #36 from dgray16/master
+* Optimizing imports. Changes to db changelogs. Changes to Limits table mapping.
+* Merge pull request #35 from dgray16/master
+* i18n. Add Limits functionality. Changes to INSTALL and HACKING documents.
+* i18n. Email functionality bug fixes.
+* Optimizing imports. Refactoring.
+* Fix MySQL test failure bug.
+* Add limits for workers and machines (Mapping, Entity, DAO, Model, DB). Refactoring. Add method for create button of Workers/Machines to check if users not violating with limits. Add i18n.
+* Add limits for users (Mapping, Entity, DAO, Model, DB). Refactoring. Add method for create button of Users to check if users not violating with limits.
+* Merge pull request #30 from Chitach/master
+* Control commit
+* All works fine, except of item in planning tab
+* User by default fixed for logs
+* Listboxes, buttons size and coloring fix in logs
+* Some small bugs fixed
+* Added coloring for riskScore and priority(IssueLog)
+* Cell colors for issueLog priority field added
+* Some small bugs are fixed
+* Changed issue status to depend on different issue type values
+* Some small  bugs are fixed
+* Merging with main Libreplan fork
+* Merge pull request #26 from dgray16/master
+* Fix Configuration Controller bug.
+* Changes to email functionality.
+* Email functionality bug fixes.
+* Merging with main fork
+* Merge pull request #25 from dgray16/master
+* Add Liquibase 1.5 changelog to changelogs. Fix compile errors. Code refactoring.
+* Fix merge conflicts.
+* Vova added the following new functionality: ------------------------------------------ Email notification functionality added. Email connector to smtp server added. Email template editor added. Email notification "resource assigned to task" added.
+* Merge branch 'master' of git://github.com/dgray16/libreplan into dgray16-master
+* Update git ignore file.
+* Code refactoring. Add changes to Dashboard Global functionality. Change i18n for OrderStatusEnum. Add new values for i18n. Add css classes for Dashboard Global.
+* Add Dashboard tab to left main menu. Add mock up of pipeline window.
+* Merge remote-tracking branch 'origin/master'
+* Add Global Dashboard page. Add content of dashboard page.
+* Add Dashboard tab to left main menu. Add mock up of pipeline window.
+* Add Dashboard tab to left main menu. Add mock up of pipeline window.
+* Add documentation about E-mail sending functionality. Update JUnit version. Code refactoring. Imports optimizations. Changes to UI of E-mail Templates page. New values for i18n. Validations of E-mail functionality.
+* Add possibility to disable E-mail sending with Maven compiler option.
+* Visual improvements to root pom file. Add license header to many files. Add new strings to i18n. Code refactoring. Add few comments to classes. Add new method for NotificationModel. Optimizing imports. Manually add constraints for email/username at E-mail connector page. A lot of changes to SendEmail class.
+* Add new connector property. Add DAOs for EmailNotification/Template. Add entities for EmailNotification/Template. Add models for EmailNotification/Template. Add Hibernate mapping for email tables. Some changes to resources mapping. Add classes for job scheduling of emails. Code refactoring. Test email button changes. Add solution to get welcome page URL from system. Remarks to method that adds new row to notification_queue table. New role in Spring security. New content of Edit E-mail templates page.
+* Add database 1.5 PostgreSQL backup.
+* Add classes for E-mail scheduling job. All that is referencing to email template - moved into another package. Add classes/mapping for notification_queue table. Update Hibernate version in pom file. Add role to accept email.
+* Add files that was rejected by Git.
+* Add edit E-mail template page.
+* Add classes for E-mail scheduling.
+* Update how-to-start-with-IDEA Changed quartz scheduler version Add opportunity to Schedule E-mail class Add opportunity to test E-mail connector Minor changes to BaseCRUDController Add new strings for i18n Some changes to editJobScheduling form
+* debugged
+* Added table definition for email_template Added 1.5 changes file to changelog
+* Added file on howto start developing witg IntelliJ Idea.
+* Long overdue update
+* Added section about hacking on Windows
+* bug 1633 fixed
+* Add edit E-mail template page.
+* Bump version numbers in pom files to 1.4.1
+* Revert "fixes to the build system"
+* bump version numbers in pom files.
+* fixes to the build system -Pom get extra plugins and a dependency to get through Launchpad build process. -Maintainer in control file edited. -no more build of NavalPlan.
+* i18n: fixed small thing on french help pages.
+* Merge pull request #20 from mvanmiddelkoop/PersonalDashboard-TasklistEnhancements
+* Merge pull request #19 from mvanmiddelkoop/java.lang.NoClassDefFoundError
+* Merge pull request #14 from rkfg/fix
+* Merge pull request #21 from mvanmiddelkoop/ProjectsPlanning-WiderNameColumn
+* Merge pull request #16 from poum/patch-2
+* Merge pull request #18 from mvanmiddelkoop/loginpage-autofocus
+* Merge pull request #15 from KrisBuytaert/patch-1
+* doc: Update AUTHORS file info about new Norwegian translator
+* i18n: Add Norwegian Bokmal language to enum and modify pom.xml to use English userguide
+* i18n: Adding Norwegian Bokmal language
+* Project Name column wider
+* Layout of Tasks area changed,too
+* Enhance Tasklist in User Personal Dashboard
+* java.lang.NoClassDefFoundError
+* java.lang.NoClassDefFoundError
+* Revert "Revert "Revert "Error message java.lang.NoClassDefFoundError: org/hibernate/util/DTDEntityResolver"""
+* Revert "Revert "Error message java.lang.NoClassDefFoundError: org/hibernate/util/DTDEntityResolver""
+* Revert "Error message java.lang.NoClassDefFoundError: org/hibernate/util/DTDEntityResolver"
+* Error message java.lang.NoClassDefFoundError: org/hibernate/util/DTDEntityResolver
+* Autofocus on username field at login
+* Fix for #1655 : display french help
+* Update nl.po
+* Lazy loading fixed.
+* Excessive dependency removed.
+* Bindings must be reloaded
+* Upgrade Hibernate version
+* Upgrade to Spring 4.0.3 version
+* Remove uses of @NotTransactional
+* Upgrade Spring to 3.2.8 and Hibernate to 4.2.8
+* Use a newer version of surefire plugin
+* Simplify security configuration using form-login
+* Upgrade schema files for Spring configuration
+* Remove CustomTargetUrlResolver
+* Reorder dependencies in libreplan-business/pom.xml
+* Remove dependencies already present in business
+* Upgrade Spring version
+* Make tests independent of tests order execution
+* Fix bug #1646
+* Remove unnecessary clearAll calls
+* Improve test
+* Improve test to avoid spurious errors
+* Performance improvement
+* Declare transaction declaratively
+* Fix performance regression
+* Fix bug #1645
+* Fix bug #1644
+* Remove the listener allResourcesPerDay
+* Be more restrictive when discarding messages
+* Some renamings and documentation added
+* Fix issue with messages for users
+* Escape ' characters used along with positional parameters
+* Fix bug #1643
+* Fix bug #1642
+* A script to change strings in the whole source tree. Use with care!
+* Batch of changed english strings, including in po files
+* Remove dead code
+* filter-on-projectname: textbox to enter projectname is added
+* filter-on-projectname: modified to use project name as filter criteria
+* filter-on-projectname: modified to support filter on part of project name
+* filter-on-projectname: acceptFilerName method added to accept filter on part of projectname
+* filter-on-projectname: acceptFilerName method added to accept filter on part of projectname
+* filter-on-projectname: modified to support filter on part of project name
+* filter-on-projectname: new methods added to read and write filter name attribute
+* Remove unused method
+* Use parameters instead of concatenating
+* small adjustments to representation
+* project-margins-and-status: project status red image. Used when hover on the component
+* project-margins-and-status: project status red image. Used as background-image
+* project-margins-and-status: project status orange image. Used when hover on the component
+* project-margins-and-status: project status orange image. Used as background-image
+* project-margins-and-status: project status green image. Used when hover on the component
+* project-margins-and-status: project status green image. Used as background-image
+* project-margins-and-status: new styles added for project status
+* project-margins-and-status: input components added for hours and budget margin
+* project-margins-and-status: added methods to calculate the workhours and budget with the specified margin for the project
+* project-margins-and-status: implementation of get Project's hours and budget status and tooltipText for the project status
+* project-margins-and-status: two properties(hoursMargin and budgetMargin) are added to the Order object
+* project-margins-and-status: two columns(hours_margin and budget_margin) are added to the order-table
+* project-margins-and-status: hoursMargin and budgetMargin fields added
+* project-margins-and-status: new treecell added to hold project's hours and budget status
+* project-margins-and-status: new treecell added to hold project's hours and budget status
+* project-margins-and-status: label 'Status' added
+* project-margins-and-status: Implementation of getProject- hours and budget status and the project's tooltipsText
+* project-margins-and-status: get project status and tooltipText methods added
+* project-margins-and-status: extended with implementaion of ITaskFundamentalProperties -projectStatus and tooltip
+* project-margins-and-status: Project's hours and budget status
+* project-margins-and-status: get/show project's hours and budget status
+* Merge pull request #13 from poum/master
+* Fix little title typo
+* Merge pull request #12 from poum/patch-2
+* Fix use_latex_footnotes warning
+* Remove unused part in build
+* Extract repeated Makefile
+* Fix bug #1635
+* Merge pull request #11 from poum/master
+* Fix typos detected during manual review
+* Add note about how to generate documentation
+* Merge pull request #10 from poum/master
+* Fix typo which cause french pdf manual generation to fail
+* Fix test failure
+* Merge pull request #8 from poum/master
+* Execute tests in alphabetical order
+* Massive fix for french i18n: - global coherence within the program - coherence with user manual
+* Undo expense column recalculation on budget changes
+* Modified automatic budget cell calculations and rearranged report
+* Refreshed calculated expense column on hours or budget changes
+* Modified calculations for the total column when automatic budgeting enabled
+* Step 1
+* Use utility method
+* Remove use of class introduced in JDK 1.7
+* Fix potential problem
+* Don't use the same display number always
+* Show output from printing process
+* Remove unused constant
+* Move helper methods closer
+* Refactor to the creation of css file
+* Encode correctly http parameters
+* Introduce parameter object
+* Use ProcessBuilder to construct program calls
+* Fixed wrong not-null restriction on Criterion to CostCagegory hibernate definition
+* Disabled loading of HourCosts associated to Criterion CostCategory
+* Bug #1619: Adding elements from template to the WBS was not showing the new nodes
+* Parametrized use of resources budget column
+* Fixed problems in the algorithm when having criteria both on requirements and hours group
+* Modified transactional wrapper to avoid duplicating session
+* Implemented method to obtain criterion cost on HourCostDAO
+* Fixed NPE when attaching criterion without costCategories
+* Added condition to show resources budget column
+* Fixes on the resources budget calculation algorithm
+* Attached onBlur event to remove CostCategory after clearing the autocomplete
+* Added restriction to avoid deletion of costCategories assigned to criterion
+* Added grouping headers to new report with all columns
+* Used previous report when hours budget not selected
+* Modified ProjectStatusReport to include the Hours Budget column
+* Modified cost tab on project/task details to include criteria based budget
+* Moved criteria based budget calculation methods to OrderElement to use them from the OrderCRUD
+* Implemented initial version for the budget calculation algorithm
+* Added new column to WBS with the data from the task criteria
+* Included new column for the calculated budget to the WBS
+* Added to configuration class accessors for automatic budget properties
+* Included in the interface new settings to enable automatic budgeting and the type of hour to use on it
+* Linked cost category autocomplete widget to criteria edition window
+* Added database changes to store Criterion to CostCategory relationship
+* Created new liquibase changelog file for 1.4 version
+* Defined persistence for the relationship between criteria and cost category
+* Added empty cell renderer to criterion to include the cost category
+* Added relationship between Criterion and CostCategories
+* Merge pull request #6 from ogf/connection-pooling
+* Use a connection data pool when running tests
+* Use newest postgresql driver
+* Use connection pooling in Jetty too
+* Merge pull request #5 from ogf/fix-errors-tests
+
+Version 1.5.0 (2016)
 ---------------------------
 
 Summary
@@ -134,7 +748,7 @@ Changes
 * Code refactoring
 
 
-Version 1.4.2 (2015)
+Version 1.4.1 (2015)
 ---------------------------
 
 Summary
@@ -142,7 +756,7 @@ Summary
 
 These are the most representative changes:
 
-* ?
+* Maintenance release
 
 Contributors
 ~~~~~~~~~~~~
@@ -157,7 +771,7 @@ Thanks to all the contributors to this new version:
 Changes
 ~~~~~~~
 
-* ?
+* Bugs fixed
 
 
 Version 1.4.0 (29 Apr 2013)
