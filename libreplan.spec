@@ -105,7 +105,7 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/%{name}/conf/*
 
 %changelog
-* Tue Jun 10 2026 Jeroen Baten       jeroen@libreplan.dev> - 1.6.1-1
+* Wed Jun 10 2026 Jeroen Baten       jeroen@libreplan.dev> - 1.6.1-1
 - Released LibrePlan 1.6.1
 * Wed Apr 15 2026 Jeroen Baten       jeroen@libreplan.dev> - 1.6.0-1
 - Released LibrePlan 1.6.0
