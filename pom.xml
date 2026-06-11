@@ -358,24 +358,24 @@
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-web</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.5.10</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-config</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.5.10</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-acl</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.5.10</version>
             </dependency>
 
             <!-- Spring Dependency LDAP -->
             <dependency>
                 <groupId>org.springframework.security</groupId>
                 <artifactId>spring-security-ldap</artifactId>
-                <version>4.2.3.RELEASE</version>
+                <version>6.5.10</version>
             </dependency>
 
             <!-- Spring test -->
