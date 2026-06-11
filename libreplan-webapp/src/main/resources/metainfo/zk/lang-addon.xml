@@ -6,8 +6,8 @@
     <language-name>xul/html</language-name>
 
     <!-- When the version is changed, the browser will reload the JavaScript modules -->
-    <javascript-module name="webcommon" version="1.6.0" />
-    <javascript-module name="limitingresources" version="1.6.0" />
+    <javascript-module name="webcommon" version="1.6.1" />
+    <javascript-module name="limitingresources" version="1.6.1" />
 
     <component>
         <component-name>twowayselector</component-name>

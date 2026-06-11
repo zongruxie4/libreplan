@@ -1,8 +1,14 @@
+libreplan (1.6.1-1) squeeze; urgency=low
+
+  * Released LibrePlan 1.6.1
+
+ -- Jeroen Baten <jeroen@libreplan.dev>  Wed, 10 Jun 2026 12:35:16 +0200
+
 libreplan (1.6.0-1) squeeze; urgency=low
 
   * Released LibrePlan 1.6.0
 
- -- Jeroen Baten <jeroen@libreplan.dev>  Tue May  5 15:44:40 CEST 2026
+ -- Jeroen Baten <jeroen@libreplan.dev>  Tue, 05 May 2026 15:44:40 +0100
 
 libreplan (1.4.1-2) UNRELEASED; urgency=low
 

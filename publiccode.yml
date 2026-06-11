@@ -1,0 +1,88 @@
+publiccodeYmlVersion: 0.5.0
+name: LibrePlan
+url: https://github.com/LibrePlan/libreplan
+softwareVersion: 1.6.0
+releaseDate: 2026-05-15
+platforms:
+  - web
+  - linux
+categories:
+  - enterprise-project-management
+  - project-management
+  - project-collaboration
+organisation:
+  uri: https://opencollective.com/libreplan
+  name: Open Collective Europe
+roadmap: https://www.libreplan.dev/info/roadmap/
+developmentStatus: stable
+softwareType: standalone/web
+description:
+  en:
+    localisedName: LibrePlan
+    shortDescription: open source web-based project management application
+    longDescription: >-
+      LibrePlan is an open source web-based project management application. It
+      allows project managers to plan projects, see the resource load (people
+      and machines), track time and materials during realization, report
+      progress, find deviations and connect to other systems. It has many, many
+      features, is stable and user friendly.
+
+
+      The LibrePlan team creates and supports this open source project
+      management application to help you plan, monitor and control projects.
+    features:
+      - project management
+      - Gantt overview
+      - Resource allocation
+      - Resource selection criteria
+      - email notification
+      - critical path
+      - resource load view
+      - pipeline view
+      - project documentation repositories
+      - jira integration
+      - REST interface
+      - web services interface
+      - reports
+    screenshots:
+      - https://www.libreplan.dev
+    videos:
+      - https://www.youtube.com/watch?v=gLxlLpbOQMA
+      - https://www.youtube.com/watch?v=u6QvX_Cwe9w
+      - https://www.youtube.com/watch?v=UI__mC9yZwk
+legal:
+  license: AGPL-3.0-or-later
+maintenance:
+  type: community
+  contacts:
+    - name: Jeroen Baten
+      email: jeroen@libreplan.dev
+      phone: "+31648519096"
+      affiliation: Project leader
+localisation:
+  localisationReady: true
+  availableLanguages:
+    - nl
+    - fr
+    - de
+    - en
+    - it
+    - es
+    - ca
+    - ru
+    - uk
+    - zh
+    - zh-Hans
+    - ja
+    - nb
+    - nb-NO
+    - no
+    - cs
+    - cs-CZ
+    - fa-IR
+    - pl
+    - pl-PL
+    - pt
+    - pt-BR
+    - sv
+    - sv-SE

@@ -1,6 +1,35 @@
 NEWS
 ====
 
+Version 1.6.1 (09 Jun 2026)
+---------------------------
+
+
+Summary
+~~~~~~~
+There was a clash between two libraries of the same name but with different versions and source url.
+This has been fixed. Also adding publiccode.yml file to project root.
+
+Notes
+~~~~~
+
+No database upgrade needed.
+
+Contributors
+~~~~~~~~~~~~
+
+A big thanks to all the contributors to version 1.6.1 :
+
+* Jeroen Baten
+* Santiago Borrazas
+
+Changes
+~~~~~~~
+
+* Merge pull request #2068 from sanbor/fix-woodstox-stax2-conflict-2067
+* Exclude obsolete woodstox-core-asl from CXF transitive deps (fixes #2067).
+
+
 Version 1.6.0 (17 Apr 2026)
 ----------------------------------
 

@@ -1,5 +1,5 @@
 Name:           libreplan
-Version:        1.6.0
+Version:        1.6.1
 Release:        1
 Summary:        Web application for project planning, monitoring and control
 License:        AGPLv3
@@ -105,8 +105,12 @@ rm -rf ${RPM_BUILD_ROOT}
 %{_datadir}/%{name}/conf/*
 
 %changelog
-* Wed Apr 15 2015 Jeroen Baten       jeroen@libreplan.dev> - 1.6.0-1
+* Wed Jun 10 2026 Jeroen Baten       jeroen@libreplan.dev> - 1.6.1-1
+- Released LibrePlan 1.6.1
+* Wed Apr 15 2026 Jeroen Baten       jeroen@libreplan.dev> - 1.6.0-1
 - Released LibrePlan 1.6.0
+* Wed Apr 15 2015 Jeroen Baten       jbaten@i2rs.nl - 1.4.1-1
+- Released LibrePlan 1.4.1
 * Mon Apr 29 2012 Manuel Rego Casasnovas <rego@igalia.com> - 1.4.0-1
 - Released LibrePlan 1.4.0
 * Fri Dec 21 2012 Manuel Rego Casasnovas <rego@igalia.com> - 1.3.3-1
